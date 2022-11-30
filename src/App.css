@@ -1,38 +1,199 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.search-bar{
+  background-color: var(--primary-color);
   color: white;
+  font-family: var(--secondary-font);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.search-bar > *{
+  flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search-bar label{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.search-bar select, .search-bar input{
+  padding: 2px;
+  padding-left: 8px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.search-bar select{
+  cursor: pointer;
+}
+.search-bar input{
+  border: 1px solid grey;
+}
+
+.search-bar select:focus, .search-bar input:focus{
+  outline: 2px solid rgb(0 0 0 / .3);
+}
+.search-bar option{
+  background-color: var(--primary-color);
+}
+
+.search-bar button{
+  padding: 8px 15px;
+  border-radius: 3px;
+  color: white;
+  background-color: rgba(0 0 0 / .3);
+  border: none;
+  font-size: 1.2rem;
+  transition: 150ms ease;
+  cursor: pointer;
+  
+}
+
+.search-bar button:hover{
+  background-color: rgb(0 0 0 / .1);
+}
+
+/* Quiz container */
+
+.quiz-container{
+  min-width: 300px;
+  max-width: 800px;
+  padding: 2rem;
+  padding-top: 2.5rem;
+  background-color: #0000004d;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 1rem auto;
+  position: relative;
+  font-family: var(--primary-font);
+}
+
+.questions_remaining{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: rgb(141, 138, 138);
+}
+
+.quiz-container .answers{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quiz-container button{
+  padding: 8px 15px;
+  font-family: var(--primary-font);
+  background-color: grey;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.quiz-container button:hover{
+  opacity: .7;
+}
+
+.quiz-container button.incorrect{
+  background-color: rgb(204, 27, 27);
+}
+
+.quiz-container button.correct{
+  background-color: rgb(3, 163, 3);
+}
+
+.quiz-container .controller-btns {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.quiz-container .controller-btns button.resetBtn{
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: #ccc;
+  font-size: 1.2rem;
+}
+
+.quiz-container .controller-btns button.playNextBtn{
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.quiz-container .controller-btns button.playNextBtn:disabled{
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+button.option:disabled:hover{
+  cursor:default;
+  opacity: 1;
+}
+
+.scoreboard{
+  margin-top: 1.5rem;
+  text-align: center;
+  color: white;
+  font-family: var(--primary-font);
+  font-size: 1.4rem;
+}
+
+.scoreboard span:first-child{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.info{
+  background-color: rgb(0 0 0 / .3);
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: auto;
+  font-size: 1rem;
+}
+
+
+@media screen and (max-width: 800px){
+  html{
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  
+
+  .search-bar button{
+    width: 80%;
+  }
+
+  main{
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html{
+    font-size: 13px;
+  }
+  .search-bar{
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .select-field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
   }
 }
